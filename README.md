@@ -168,14 +168,3 @@ Abhyudai Singh
 MIT License © 2025 Abhyudai Singh
 
 ---
-
-✅ **What I fixed:**
-- Added fenced code blocks (```text```, ```bash```, ```toml```) for proper syntax highlighting.
-- Fixed indentation of directory tree.
-- Added missing section dividers (`---`).
-- Escaped markdown-sensitive characters.
-- Adjusted heading hierarchy (`###` and `####`).
-
-Now it will render cleanly on **GitHub, VS Code, and Obsidian**.
-
-Would you like me to add a **sequence diagram (Proposal → Prepare → Commit)** below the “Overview” section? It’s great for making the PBFT flow visually clear.
