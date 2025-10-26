@@ -39,7 +39,7 @@ PBFT_POC/
 
 Edit `config/cluster.toml` to define your cluster:
 
-```toml
+``` toml
 [[nodes]]
 id = 0
 host = "127.0.0.1"
@@ -95,7 +95,7 @@ Expected output:
 	•	Each honest node rebroadcasts a Prepare.
 	•	All nodes log incoming Prepare messages.
 
-⸻
+
 
 🧾 Logs
 
@@ -112,16 +112,12 @@ Tail any log in real time:
 tail -f logs/node-2.log
 
 
-⸻
-
 🔍 Next Steps (Planned)
 	•	Add quorum tracking for Prepare and Commit phases (2f + 1 logic).
 	•	Simulate one Byzantine (faulty) node.
 	•	Add cryptographic signatures or message digests.
 	•	Implement block execution and commit decision.
 	•	Add /metrics endpoint to expose PBFT state.
-
-⸻
 
 🧰 Tech Stack
 
@@ -134,7 +130,6 @@ config	Loads cluster.toml for node topology
 serde / serde_json	JSON serialization for messages
 
 
-⸻
 
 🤝 Author
 
@@ -142,4 +137,3 @@ Abhyudai Singh
 📧 abhyudaisingh09@gmail.com
 🔗 github.com/AbhyudaiSingh09
 
-⸻
