@@ -1,2 +1,18 @@
 [2m2025-10-26T01:31:04.284134Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8082 [3mnode_id[0m[2m=[0m2
 [2m2025-10-26T01:35:53.229107Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8082 [3mnode_id[0m[2m=[0m2
+[2m2025-10-26T02:54:24.282889Z[0m [32m INFO[0m [2mbft_basic_server::node[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8082 [3mnode_id[0m[2m=[0m2
+[2m2025-10-26T02:55:08.774250Z[0m [32m INFO[0m [2mbft_basic_server::node[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8082 [3mnode_id[0m[2m=[0m2
+[2m2025-10-26T03:07:55.324678Z[0m [32m INFO[0m [2mbft_basic_server::node[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8082 [3mnode_id[0m[2m=[0m2
+[2m2025-10-26T03:08:04.802352Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m1 [3mcount[0m[2m=[0m1 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:04.804477Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m1 [3mfrom[0m[2m=[0m2 [3mcount[0m[2m=[0m1 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:04.805139Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m2 [3mcount[0m[2m=[0m2 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:04.807291Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Commit [3mnode_id[0m[2m=[0m2 [3mfrom[0m[2m=[0m0 [3mcount[0m[2m=[0m1 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.598688Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Proposal [3mnode_id[0m[2m=[0m1 [3mheight[0m[2m=[0m1 [3mproposer[0m[2m=[0m0 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.599978Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Commit [3mnode_id[0m[2m=[0m1 [3mfrom[0m[2m=[0m0 [3mcount[0m[2m=[0m1 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.601862Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m2 [3mfrom[0m[2m=[0m1 [3mcount[0m[2m=[0m2 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.603077Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Proposal [3mnode_id[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mproposer[0m[2m=[0m0 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.605309Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Commit [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m0 [3mcount[0m[2m=[0m1 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.605944Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m1 [3mfrom[0m[2m=[0m2 [3mcount[0m[2m=[0m2 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.606982Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Proposal [3mnode_id[0m[2m=[0m3 [3mheight[0m[2m=[0m1 [3mproposer[0m[2m=[0m0 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.608400Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Commit [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m0 [3mcount[0m[2m=[0m1 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0
+[2m2025-10-26T03:08:26.609469Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m2 [3mfrom[0m[2m=[0m3 [3mcount[0m[2m=[0m2 [3mneed[0m[2m=[0m3 [3mbid[0m[2m=[0mh1-p0

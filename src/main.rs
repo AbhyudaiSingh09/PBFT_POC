@@ -4,6 +4,7 @@ mod types;
 mod node;
 mod routes;
 
+
 use crate::config_load::ClusterConfig;
 use tracing_subscriber::{fmt, EnvFilter};
 use tracing::info;
@@ -28,11 +29,4 @@ async fn main() -> anyhow::Result<()> {
     for h in handles { let _ = h.await; }
     Ok(())
 }
-
-
-#[derive(Debug, serde::Serialize)]
-pub struct Ack { pub ok: bool, pub node_id: u16 }
-
-#[derive(Debug, serde::Serialize)]
-pub struct BroadcastReport { pub sender_id: u16, pub attempted: usize, pub succeeded: usize }
 

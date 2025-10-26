@@ -1,0 +1,2 @@
+fn(axum::extract::State<AppState>, axum::Json<PbftMsg>) -> impl Future<Output = Result<(StatusCode, axum::Json<types::BroadcastReport>), (StatusCode, std::string::String)>> {broadcast_pbft}
+fn(axum::extract::State<AppState>, axum::Json<PbftMsg>) -> impl Future<Output = Result<(StatusCode, axum::Json<types::BroadcastReport>), (StatusCode, std::string::String)>> {broadcast_pbft}: Handler<_, _>

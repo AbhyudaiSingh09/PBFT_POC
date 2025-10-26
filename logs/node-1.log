@@ -4,3 +4,11 @@
 [2m2025-10-26T01:36:30.950904Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m0 [3mfrom[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
 [2m2025-10-26T01:36:30.952385Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
 [2m2025-10-26T01:36:30.954551Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m1 [3mfrom[0m[2m=[0m3 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T02:54:24.282889Z[0m [32m INFO[0m [2mbft_basic_server::node[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8081 [3mnode_id[0m[2m=[0m1
+[2m2025-10-26T02:54:38.954866Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m0 [3mfrom[0m[2m=[0m1 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T02:54:38.957909Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m0 [3mfrom[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T02:54:38.959486Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T02:54:38.960292Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Proposal [3mnode_id[0m[2m=[0m3 [3mheight[0m[2m=[0m1 [3mproposer[0m[2m=[0m0 [3mblock[0m[2m=[0m{"txs":[{"k":"k1","v":"v1"}]}
+[2m2025-10-26T02:54:38.961404Z[0m [32m INFO[0m [2mbft_basic_server::routes[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m1 [3mfrom[0m[2m=[0m3 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T02:55:08.774260Z[0m [32m INFO[0m [2mbft_basic_server::node[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8081 [3mnode_id[0m[2m=[0m1
+[2m2025-10-26T03:07:55.324686Z[0m [32m INFO[0m [2mbft_basic_server::node[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8081 [3mnode_id[0m[2m=[0m1

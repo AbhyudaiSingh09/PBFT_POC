@@ -1,0 +1,2 @@
+fn(axum::extract::State<AppState>) -> impl Future<Output = axum::Json<serde_json::Value>> {peers}
+fn(axum::extract::State<AppState>) -> impl Future<Output = axum::Json<serde_json::Value>> {peers}: Handler<_, _>
