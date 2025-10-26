@@ -39,6 +39,7 @@ PBFT_POC/
 
 Edit `config/cluster.toml` to define your cluster:
 
+``` toml
 
 [[nodes]]
 id = 0
@@ -60,6 +61,7 @@ id = 3
 host = "127.0.0.1"
 port = 8083
 
+```
 Add or remove nodes here to simulate larger networks.
 
 🚀 Run the Simulation
