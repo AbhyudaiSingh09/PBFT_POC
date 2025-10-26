@@ -1,12 +1,4 @@
-Got it 👍 — those red highlights you see are just Markdown syntax issues in your README.
-They happen when Markdown interpreters don’t recognize code blocks or indentation correctly.
-
-Here’s a fixed and clean version that will render perfectly on GitHub and in most Markdown editors:
-
-⸻
-
-
-# PBFT Proof of Concept
+# PBFT 
 
 A lightweight **Byzantine Fault Tolerance (PBFT)** simulation written in **Rust**.  
 This project demonstrates how nodes in a distributed system can communicate, broadcast, and handle consensus messages across a small cluster using **Axum**, **Reqwest**, and **tracing**.
