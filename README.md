@@ -1,14 +1,7 @@
-Here’s a polished README.md tailored to your PBFT Proof-of-Concept in Rust — it documents what you’ve built so far (clustered Axum servers simulating PBFT message flow, with logging and config-driven peers).
-
-⸻
-
-
-# PBFT Proof of Concept (Rust)
+# PBFT Proof of Concept 
 
 A lightweight **Byzantine Fault Tolerance (PBFT)** simulation written in Rust.  
 This project demonstrates how nodes in a distributed system can communicate, broadcast, and handle consensus messages across a small cluster using **Axum**, **Reqwest**, and **tracing**.
-
----
 
 ## 🧠 Overview
 
@@ -24,8 +17,6 @@ The simulation currently supports:
 - ✅ Typed PBFT message handling
 - ✅ Broadcasting via HTTP
 - ✅ Structured per-node file logging
-
----
 
 ## 🏗️ Project Structure
 
@@ -43,8 +34,6 @@ PBFT_POC/
 ├── node.rs               # Node startup & broadcast logic
 ├── routes.rs             # HTTP handlers
 └── types.rs              # Shared PBFT message and response types
-
----
 
 ## ⚙️ Configuration
 
@@ -71,9 +60,7 @@ id = 3
 host = "127.0.0.1"
 port = 8083
 
-You can add or remove nodes here to simulate larger networks.
-
-⸻
+Add or remove nodes here to simulate larger networks.
 
 🚀 Run the Simulation
 
