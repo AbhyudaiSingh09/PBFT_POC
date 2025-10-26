@@ -39,7 +39,7 @@ PBFT_POC/
 
 Edit `config/cluster.toml` to define your cluster:
 
-``` toml
+
 [[nodes]]
 id = 0
 host = "127.0.0.1"
