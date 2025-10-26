@@ -1,0 +1,7 @@
+[2m2025-10-26T01:31:04.284134Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8083 [3mnode_id[0m[2m=[0m3
+[2m2025-10-26T01:35:53.229108Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8083 [3mnode_id[0m[2m=[0m3
+[2m2025-10-26T01:36:30.947472Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Proposal [3mnode_id[0m[2m=[0m1 [3mheight[0m[2m=[0m1 [3mproposer[0m[2m=[0m0 [3mblock[0m[2m=[0m{"txs":[{"k":"k1","v":"v1"}]}
+[2m2025-10-26T01:36:30.949558Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m1 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T01:36:30.951647Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m1 [3mfrom[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T01:36:30.953838Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m0 [3mfrom[0m[2m=[0m3 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T01:36:30.955199Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m2 [3mfrom[0m[2m=[0m3 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0

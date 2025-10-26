@@ -1,0 +1,6 @@
+[2m2025-10-26T01:31:04.284136Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8081 [3mnode_id[0m[2m=[0m1
+[2m2025-10-26T01:35:53.229109Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m server starting [3maddr[0m[2m=[0m127.0.0.1:8081 [3mnode_id[0m[2m=[0m1
+[2m2025-10-26T01:36:30.948052Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m0 [3mfrom[0m[2m=[0m1 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T01:36:30.950904Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m0 [3mfrom[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T01:36:30.952385Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m3 [3mfrom[0m[2m=[0m2 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
+[2m2025-10-26T01:36:30.954551Z[0m [32m INFO[0m [2mbft_basic_server[0m[2m:[0m recv Prepare [3mnode_id[0m[2m=[0m1 [3mfrom[0m[2m=[0m3 [3mheight[0m[2m=[0m1 [3mhash[0m[2m=[0mh1-p0
