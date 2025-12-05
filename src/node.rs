@@ -4,7 +4,7 @@ use std::sync::Arc;
 
 use axum::{routing::{get, post}, Router};
 use tracing::{error, info};
-use tracing::dispatcher::with_default;
+use tracing::dispatcher::{self, DefaultGuard};
 
 use std::collections::{HashMap, HashSet};
 use tokio::sync::Mutex;
@@ -18,7 +18,7 @@ pub struct AppState {
     pub node_id: u16,
     pub peers: Vec<NodeConfig>,
     pub client: reqwest::Client,
-    pub is_byzantine: bool, 
+    pub is_byzantine: bool,
     // PBFT consensus state (mutable via async locks)
     pub height: Mutex<u64>,
     pub current_bid: Mutex<Option<BlockId>>,
@@ -30,8 +30,12 @@ pub struct AppState {
 pub type SharedState = Arc<AppState>;
 
 pub async fn start_node(node: NodeConfig, peers: Vec<NodeConfig>) {
-    // Build per-node dispatch + guard (do NOT set global default here)
-    let (dispatch, _guard) = build_node_dispatch(node.id);
+    // Build per-node dispatch + guard
+    let (dispatch, file_guard) = build_node_dispatch(node.id);
+
+    // Install this dispatch as the default for the duration of this async fn
+    let _dispatch_guard: DefaultGuard = dispatcher::set_default(&dispatch);
+    let _file_guard = file_guard; // keep the non-blocking writer alive
 
     let addr: SocketAddr = format!("{}:{}", node.host, node.port)
         .parse()
@@ -49,39 +53,48 @@ pub async fn start_node(node: NodeConfig, peers: Vec<NodeConfig>) {
         commits:  Mutex::new(HashMap::new()),
     });
 
-       let app = Router::new()
+    let app = Router::new()
         .route("/health", get(crate::routes::health))
         .route("/peers", get(crate::routes::peers))
         .route("/msg", post(crate::routes::handle_pbft_msg))
         .route("/broadcast", post(crate::routes::broadcast_pbft))
         .with_state(state.clone());
 
-    // Run this node's server WITH its own dispatch in scope
-    with_default(&dispatch, || async move {
-        info!(%addr, node_id=%node.id, "server starting");
-        let listener = match tokio::net::TcpListener::bind(addr).await {
-            Ok(l) => l,
-            Err(e) => { error!(node_id=%node.id, %addr, error=?e, "bind failed"); return; }
-        };
-        if let Err(e) = axum::serve(listener, app).await {
-            error!(node_id=%node.id, error=?e, "server error");
+    info!(%addr, node_id=%node.id, "server starting");
+    let listener = match tokio::net::TcpListener::bind(addr).await {
+        Ok(l) => l,
+        Err(e) => {
+            error!(node_id=%node.id, %addr, error=?e, "bind failed");
+            return;
         }
-        // `_guard` is kept alive by this scope
-    }).await;
+    };
+
+    if let Err(e) = axum::serve(listener, app).await {
+        error!(node_id=%node.id, error=?e, "server error");
+    }
 }
 
-pub async fn broadcast_pbft_inner(state: &AppState, msg: &PbftMsg) -> Result<(usize, usize), reqwest::Error> {
+pub async fn broadcast_pbft_inner(
+    state: &AppState,
+    msg: &PbftMsg,
+) -> Result<(usize, usize), reqwest::Error> {
     let mut attempts = 0usize;
     let mut ok = 0usize;
     for peer in &state.peers {
-        // if peer.id == state.node_id { continue; }
+        // we now include self; HashSet<u16> prevents double-count
         attempts += 1;
-        if post_pbft(&state.client, peer, msg).await.is_ok() { ok += 1; }
+        if post_pbft(&state.client, peer, msg).await.is_ok() {
+            ok += 1;
+        }
     }
     Ok((attempts, ok))
 }
 
-async fn post_pbft(client: &reqwest::Client, dst: &crate::config_load::NodeConfig, msg: &PbftMsg) -> Result<(), reqwest::Error> {
+async fn post_pbft(
+    client: &reqwest::Client,
+    dst: &crate::config_load::NodeConfig,
+    msg: &PbftMsg,
+) -> Result<(), reqwest::Error> {
     let url = format!("http://{}:{}/msg", dst.host, dst.port);
     client.post(url).json(msg).send().await?.error_for_status()?;
     Ok(())
