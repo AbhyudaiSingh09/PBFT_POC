@@ -7,9 +7,19 @@ use tracing::{error, info};
 use crate::types::{Ack, PbftMsg, BlockId, BroadcastReport};
 use crate::node::AppState;
 
+// pub async fn health(State(state): State<Arc<AppState>>) -> Json<serde_json::Value> {
+//     let h = state.height.lock().await;
+//     Json(serde_json::json!({ "status":"ok", "node_id": state.node_id, "height": *h }))
+// }
+
 pub async fn health(State(state): State<Arc<AppState>>) -> Json<serde_json::Value> {
     let h = state.height.lock().await;
-    Json(serde_json::json!({ "status":"ok", "node_id": state.node_id, "height": *h }))
+    Json(serde_json::json!({
+        "status": "ok",
+        "node_id": state.node_id,
+        "height": *h,
+        "byzantine": state.is_byzantine
+    }))
 }
 
 pub async fn peers(State(state): State<Arc<AppState>>) -> Json<serde_json::Value> {
@@ -22,6 +32,24 @@ pub async fn handle_pbft_msg(
 ) -> Result<(StatusCode, Json<Ack>), (StatusCode, String)> {
     let quorum = state.quorum_size();
     let me = state.node_id;
+    
+     // 👇 BYZANTINE BEHAVIOR: node ignores consensus protocol, only logs
+    if state.is_byzantine {
+        match &msg {
+            PbftMsg::Proposal { height, proposer, .. } => {
+                info!(node_id=%me, %height, %proposer, "BYZANTINE: ignoring Proposal");
+            }
+            PbftMsg::Prepare { from, bid } => {
+                info!(node_id=%me, from=%from, height=%bid.height, hash=%bid.hash, "BYZANTINE: ignoring Prepare");
+            }
+            PbftMsg::Commit { from, bid } => {
+                info!(node_id=%me, from=%from, height=%bid.height, hash=%bid.hash, "BYZANTINE: ignoring Commit");
+            }
+        }
+        // It does not participate in consensus at all
+        return Ok((StatusCode::OK, Json(Ack { ok: true, node_id: me })));
+    }
+
 
     match msg {
         PbftMsg::Proposal { height, proposer, block: _ } => {

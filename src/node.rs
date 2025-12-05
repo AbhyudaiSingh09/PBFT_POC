@@ -18,7 +18,7 @@ pub struct AppState {
     pub node_id: u16,
     pub peers: Vec<NodeConfig>,
     pub client: reqwest::Client,
-
+    pub is_byzantine: bool, 
     // PBFT consensus state (mutable via async locks)
     pub height: Mutex<u64>,
     pub current_bid: Mutex<Option<BlockId>>,
@@ -41,6 +41,7 @@ pub async fn start_node(node: NodeConfig, peers: Vec<NodeConfig>) {
         node_id: node.id,
         peers,
         client: reqwest::Client::new(),
+        is_byzantine: node.byzantine,
         height: Mutex::new(1),
         current_bid: Mutex::new(None),
         prev_hash: Mutex::new("genesis".into()),
@@ -73,7 +74,7 @@ pub async fn broadcast_pbft_inner(state: &AppState, msg: &PbftMsg) -> Result<(us
     let mut attempts = 0usize;
     let mut ok = 0usize;
     for peer in &state.peers {
-        if peer.id == state.node_id { continue; }
+        // if peer.id == state.node_id { continue; }
         attempts += 1;
         if post_pbft(&state.client, peer, msg).await.is_ok() { ok += 1; }
     }

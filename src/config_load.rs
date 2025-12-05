@@ -2,7 +2,13 @@ use serde::{Deserialize, Serialize};
 use anyhow::Result;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct NodeConfig { pub id: u16, pub host: String, pub port: u16 }
+pub struct NodeConfig { 
+    pub id: u16, 
+    pub host: String, 
+    pub port: u16,
+    #[serde(default)]
+    pub byzantine: bool, 
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ClusterConfig { pub nodes: Vec<NodeConfig> }
