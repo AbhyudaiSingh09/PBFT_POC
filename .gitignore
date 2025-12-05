@@ -1,0 +1,18 @@
+# Rust target directory
+/target/
+
+# Incremental build cache
+target/debug/incremental/
+
+# Flycheck build directories
+target/flycheck*
+
+# Logs
+logs/*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
